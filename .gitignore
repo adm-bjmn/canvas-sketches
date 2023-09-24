@@ -1,0 +1,5 @@
+# Ignore DS Store
+**/.DS_Store
+
+# Portable Network Graphics
+*.png
