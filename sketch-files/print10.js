@@ -3,9 +3,8 @@
  * on a grid square with direction set by a probability.
  * THe whole sketch is drawn via animate and so the
  * PNG output only contains the first line as subsequent
- * lines are drawn in the HTML element. A HTML 
- * element is created and downloaded inside the function
- 
+ * lines are drawn in a HTML element. A copy of the HTML
+ * element is created and downloaded inside the function.
  *
  * Adam Benjamin
  * Adm.bjmn

@@ -1,3 +1,15 @@
+/**
+ * This sketch draws squares on a grid.
+ * Starting at 00, the porbabilty a square is drawn is 10%
+ * with each new line the pobablity increases until
+ * towards the end of the grid (y == height) the
+ * probablity it nearly 100%
+ *
+ * Adam Benjamin
+ * Adm.bjmn
+ *
+ */
+
 const canvasSketch = require("canvas-sketch");
 
 const settings = {
