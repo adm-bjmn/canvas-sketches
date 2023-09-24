@@ -1,12 +1,8 @@
 /**
- * This print 10 sketch draws a diaganoal line
- * on a grid square with direction set by a probability.
- * THe whole sketch is drawn via animate and so the
- * PNG output only contains the first line as subsequent
- * lines are drawn in the HTML element. A HTML 
- * element is created and downloaded inside the function
- 
- *
+ * This function allows a canvas to be drawn using a loop
+ * Once the loop is complete. ie: in this case the precieding
+ * "loop" has mad full use of the canvas height, the funcion
+ * will download the html element hiddenCanvas.
  * Adam Benjamin
  * Adm.bjmn
  *
@@ -23,39 +19,18 @@ const sketch = () => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
-    let x = 0;
-    let y = 0;
-    let boxSize = 20;
-    let prob = 0;
-
-    function drawLine(x1, y1, x2, y2) {
-      context.beginPath();
-      context.moveTo(x1, y1);
-      context.lineTo(x2, y2);
-      context.stroke();
-    }
-
-    context.strokeStyle = "black";
-    context.lineWidth = 2;
-
     function draw() {
-      if (y < height) {
-        if (Math.random() > prob) {
-          drawLine(x, y, x + boxSize, y + boxSize);
-          x += boxSize;
-        } else {
-          drawLine(x, y + boxSize, x + boxSize, y);
-          x += boxSize;
-        }
+      /**
+       *
+       *
+       * Code for drawloop goes here. ie:
+       * if(y < height)
+       * draw blah
+       * move
+       * repeat.
+       */
 
-        if (x >= width) {
-          y += boxSize;
-          x = 0;
-          prob += 0.02;
-        }
-        context.lineWidth = 2;
-      }
-
+      // Output logic.
       if (y >= height) {
         // Create a hidden canvas element
         const hiddenCanvas = document.createElement("canvas");
