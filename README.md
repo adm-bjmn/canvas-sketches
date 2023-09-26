@@ -38,19 +38,19 @@ Useful Link: [Preset Paper sizes](https://github.com/mattdesl/canvas-sketch/blob
 ## Cmmmit Messages
 
 ```
-feat: draw a square
-^--^  ^------------^
-|     |
-|     +-> Summary in present tense.
-|
-+-------> Type: new, develop, fix, style, refactor, chore
+develop(sketch.js): draw a square
+^-----^^----------^^------------^
+|      |           |
+|      |           +---> Summary in present tense.
+|      +---------------> Sketch name
++----------------------> Type: new, develop, fix, style, refactor, chore
 ```
 
 Examples:
 
 - `new`: (new sketch initiated)
-- `develop`: (continous development of concept)
-- `fix`: (fixing issues in existing code - No new code)
-- `style`: (formatting, missing semi colons, etc; no production code change)
-- `refactor`: (refactoring production code, eg. renaming a variable)
-- `chore`: (updating grunt tasks etc; no production code change)
+- `develop(sketch-name)`: (continous development of concept)
+- `fix(sketch-name)`: (fixing issues in existing code - No new code)
+- `style(sketch-name)`: (formatting, missing semi colons, etc; no production code change)
+- `refactor(sketch-name)`: (refactoring production code, eg. renaming a variable)
+- `chore(sketch-name)`: (updating grunt tasks etc; no production code change)
