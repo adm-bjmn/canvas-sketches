@@ -40,7 +40,7 @@ develop(sketch.js): draw a square
 |      |           |
 |      |           +---> Summary in present tense.
 |      +---------------> Sketch name
-+----------------------> Type: new, develop, fix, style, refactor, chore
++----------------------> Type: new, develop, fix, style, refactor, chore, stop
 ```
 
 Examples:
@@ -51,3 +51,4 @@ Examples:
 - `style(sketch-name)`: (formatting, missing semi colons, etc; no production code change)
 - `refactor(sketch-name)`: (refactoring production code, eg. renaming a variable)
 - `chore(sketch-name)`: (updating grunt tasks etc; no production code change)
+- `stop(sketch-name)`: (A good place to stop and admire, move on from draft or call an idea exhausted)
