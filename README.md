@@ -3,12 +3,10 @@
 ## Quick Start Commands
 
 Initialise new sketch
-`canvas-sketch [name].js --new`
-
-
+`canvas-sketch sketch-files/[name].js --new --open`
 
 Configure .png output
-`canvas-sketch [name].js --output=./pngFiles/[file name]/ `
+`canvas-sketch sketch-files/[name].js --output=./pngFiles/[file name]/ `
 
 ## Canvas Sizes
 
@@ -33,7 +31,6 @@ const settings = {
 ```
 
 Useful Link: [Preset Paper sizes](https://github.com/mattdesl/canvas-sketch/blob/master/lib/paper-sizes.js)
-
 
 ## Cmmmit Messages
 

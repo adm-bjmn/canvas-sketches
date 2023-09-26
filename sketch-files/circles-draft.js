@@ -1,7 +1,7 @@
 const canvasSketch = require("canvas-sketch");
 
 const settings = {
-  dimensions: [2048, 2048],
+  dimensions: [2000, 2000],
 };
 
 const sketch = () => {
@@ -24,13 +24,15 @@ const sketch = () => {
       context.arc(centerX, centerY, radius, startAngle, endAngle); // draw the arc
       context.lineTo(centerX, centerY); // connect back to the center point to close the shape
       context.fill();
+      context.restore();
     };
 
     const bottomLeft = (context, centerX, centerY, radius) => {
       const startAngle = Math.PI / 2;
       const endAngle = Math.PI;
       // Move point to the top right Corner
-      context.translate(100, 0);
+      context.save();
+      context.translate(radius, 0);
       // Draw shape
       context.fillStyle = "pink";
       context.beginPath();
@@ -38,13 +40,15 @@ const sketch = () => {
       context.arc(centerX, centerY, radius, startAngle, endAngle); // draw the arc
       context.lineTo(centerX, centerY); // connect back to the center point to close the shape
       context.fill();
+      context.restore();
     };
 
     const topLeft = (context, centerX, centerY, radius) => {
       const startAngle = Math.PI;
       const endAngle = Math.PI * 1.5;
       // Move point to the bottom right Corner
-      context.translate(100, 100);
+      context.save();
+      context.translate(radius, radius);
       // Draw shape
       context.fillStyle = "pink";
       context.beginPath();
@@ -52,13 +56,15 @@ const sketch = () => {
       context.arc(centerX, centerY, radius, startAngle, endAngle); // draw the arc
       context.lineTo(centerX, centerY); // connect back to the center point to close the shape
       context.fill();
+      context.restore();
     };
 
     const topRight = (context, centerX, centerY, radius) => {
       const startAngle = Math.PI * 1.5;
       const endAngle = 0;
       // Move point to the bottom left Corner
-      context.translate(0, 100);
+      context.save();
+      context.translate(0, radius);
       // Draw shape
       context.fillStyle = "pink";
       context.beginPath();
@@ -66,6 +72,7 @@ const sketch = () => {
       context.arc(centerX, centerY, radius, startAngle, endAngle); // draw the arc
       context.lineTo(centerX, centerY); // connect back to the center point to close the shape
       context.fill();
+      context.restore();
     };
 
     // Draw A Peice'a'tha Pizza
@@ -74,6 +81,14 @@ const sketch = () => {
     // topRight(context, centerX, centerY, radius);
     // bottomRight(context, centerX, centerY, radius);
     // bottomLeft(context, centerX, centerY, radius);
+
+    for (i = 0; i < width / radius; i++) {
+      console.log(i);
+      context.save();
+      context.translate(radius * i, 0);
+      topLeft(context, centerX, centerY, radius);
+      context.restore();
+    }
   };
 };
 
