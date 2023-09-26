@@ -1,16 +1,19 @@
 # canvas-sketches
 
+## Quick Commands
+
 canvas-sketch [name].js --new
 canvas-sketch [name].js --output=./pngFiles
 
-yarn add html-to-image
+canvas-sketch print10.js --output=./pngFiles/[file name]
 
-canvas-sketch print10.js --output=./pngFiles
+## ==== Canvas Sizes ====
 
-<!-- ==== Canvas Sizes ==== -->
-<!-- Sizes For A4: aspect 5:4 - [600 x 750] || [800 x 1000] -->
-<!-- Sizes for A5: aspect 3.5:2.5 - [500 x 700] || [750 x 1050] -->
-<!-- Sizes for Postcard: aspect 3:2 - [400 x 600] || [600 x 900] -->
+### Sizes For A4: aspect 5:4 - [600 x 750] || [800 x 1000]
+
+### Sizes for A5: aspect 3.5:2.5 - [500 x 700] || [750 x 1050]
+
+### Sizes for Postcard: aspect 3:2 - [400 x 600] || [600 x 900]
 
 EG:
 
