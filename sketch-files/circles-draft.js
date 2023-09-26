@@ -82,11 +82,16 @@ const sketch = () => {
     // bottomRight(context, centerX, centerY, radius);
     // bottomLeft(context, centerX, centerY, radius);
 
-    for (i = 0; i < width / radius; i++) {
-      console.log(i);
+    for (i = 0; i < height / radius; i++) {
       context.save();
-      context.translate(radius * i, 0);
-      topLeft(context, centerX, centerY, radius);
+      context.translate(0, radius * i);
+
+      for (j = 0; j < width / radius; j++) {
+        context.save();
+        context.translate(radius * j, 0);
+        topLeft(context, centerX, centerY, radius);
+        context.restore();
+      }
       context.restore();
     }
   };
