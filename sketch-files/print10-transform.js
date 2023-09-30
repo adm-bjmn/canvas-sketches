@@ -17,7 +17,7 @@
 const canvasSketch = require("canvas-sketch");
 
 const settings = {
-  dimensions: [500, 700],
+  dimensions: [400, 600],
 };
 
 const sketch = () => {
@@ -27,14 +27,14 @@ const sketch = () => {
 
     let x = 0;
     let y = 0;
-    let boxSize = 20;
+    let boxSize = 50;
     let leftCount = 0;
     let rightCount = 0;
-    let prob = 0;
+    let prob = 0.5;
 
     function drawLine(x, y, x2, y2) {
       context.strokeStyle = "black";
-      context.lineWidth = 2;
+      context.lineWidth = 6;
       context.beginPath();
       context.moveTo(x, y);
       context.lineTo(x2, y2);
@@ -63,7 +63,7 @@ const sketch = () => {
            * increase the probability of
            * drawing a square by almost 10%
            */
-          prob += 0.02;
+          // prob += 0.02;
         }
       }
     }

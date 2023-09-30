@@ -25,9 +25,9 @@ const sketch = () => {
     // Variables
     let x = 0;
     let y = 0;
-    let rectWidth = 50;
-    let rectHeight = 50;
-    let prob = 0.1;
+    let rectWidth = 100;
+    let rectHeight = 100;
+    let prob = 0.5;
     let drawCount = 0;
     // draw a square
     function drawSquare(x, y, w, h) {
@@ -72,8 +72,8 @@ const sketch = () => {
            * increase the probability of
            * drawing a square by almost 10%
            */
-          prob += 0.08;
-          console.log(prob);
+          // prob += 0.08;
+          // console.log(prob);
         }
       }
     }
