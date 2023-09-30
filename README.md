@@ -51,5 +51,5 @@ Examples:
 - `style(sketch-name)`: (formatting, missing semi colons, etc; no production code change)
 - `refactor(sketch-name)`: (refactoring production code, eg. renaming a variable)
 - `chore(sketch-name)`: (updating grunt tasks etc; no production code change)
-- `stop(sketch-name)`: (A good place to stop and admire, move on from draft or call an idea exhausted)
+- `stop(sketch-name)`: (A good place to stop and admire, move on from draft or call an idea done)
 - `printing`: (Only variables have changed to get outputs for lino - no code change)
