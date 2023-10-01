@@ -54,24 +54,25 @@ const sketch = () => {
     };
 
     // testing shape
-    context.save();
-    context.translate(width * 0.5, height * 0.5);
-    botsSegment(context, centerX, centerY, radius);
-    context.restore();
 
-    // for (i = 0; i < height / radius + 1; i += 0.3) {
-    //   context.save();
-    //   context.translate(0, radius * i);
-    //   for (j = 0; j < drawWidth / radius; j++) {
-    //     context.save();
-    //     context.translate(radius * j, 0);
-    //     botsSegment(context, centerX, centerY, radius);
-    //     context.restore();
-    //   }
-    //   context.restore();
-    //   centerX -= 10;
-    //   drawWidth += 10;
-    // }
+    // context.save();
+    // context.translate(width * 0.5, height * 0.5);
+    // botsSegment(context, centerX, centerY, radius);
+    // context.restore();
+
+    for (i = 0; i < height / radius + 1; i += 0.3) {
+      context.save();
+      context.translate(0, radius * i);
+      for (j = 0; j < drawWidth / radius; j++) {
+        context.save();
+        context.translate(radius * j, 0);
+        botsSegment(context, centerX, centerY, radius);
+        context.restore();
+      }
+      context.restore();
+      centerX -= 10;
+      drawWidth += 10;
+    }
   };
 };
 
