@@ -1,7 +1,7 @@
 const canvasSketch = require("canvas-sketch");
 
 const settings = {
-  dimensions: [2048, 2048],
+  dimensions: [1100, 1100],
 };
 
 const sketch = () => {
@@ -9,9 +9,11 @@ const sketch = () => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
-    let centerX = width;
-    let centerY = 0;
-    let radius = 100;
+    let radius = 70;
+
+    let centerX = width + radius;
+    let centerY = -600;
+
     const fillColour = [
       "#25262C",
       "#17AD7C",
@@ -21,18 +23,31 @@ const sketch = () => {
       "#FCD5A4",
       "#F6A12B",
     ];
+    let colourSelector = 0;
 
-    const drawCircle = (centerX, centerY, radius) => {
-      context.fillStyle = fillColour[6];
+    const drawCircle = (centerX, centerY, radius, colourSelector) => {
+      context.fillStyle = fillColour[colourSelector];
       context.beginPath();
       context.arc(centerX, centerY, radius, 0, Math.PI * 2);
       context.fill();
     };
 
-    for (let i = width; i > 0; i--) {
-      drawCircle(centerX, centerY, radius);
-      centerX -= 10;
-      centerY += 10;
+    for (let i = -height; i < height; i += radius) {
+      context.save();
+      context.translate(0, centerY);
+      for (let j = width; j > 0; j--) {
+        context.save();
+        context.translate(centerX - j * 10, centerY + j * 10);
+        drawCircle(0, 0, radius, colourSelector);
+        context.restore();
+      }
+      centerY += radius * 1.4;
+      if (colourSelector == fillColour.length - 1) {
+        colourSelector = 0;
+      } else {
+        colourSelector += 1;
+      }
+      context.restore();
     }
   };
 };
