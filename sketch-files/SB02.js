@@ -42,35 +42,17 @@ const sketch = () => {
       context.fill();
     };
 
-    // for (let j = height; j > 0; j--) {
-    //   context.save();
-    //   context.translate(centerX + j * 10, height - j * 10);
-    //   drawCircle(0, 0, radius, colourSelector);
-    //   context.restore();
-    //   ticker++;
-    //   plotCount++;
-    //   if (plotCount < 100) {
-    //     colourSelector = 0;
-    //   } else {
-    //     if (ticker > 14) {
-    //       const randomColour = random.rangeFloor(1, fillColour.length);
-    //       colourSelector = randomColour;
-    //       ticker = 0;
-    //     }
-    //   }
-    // }
-
-    for (let i = 0; i < width; i++) {
+    for (let j = height; j > 0; j--) {
       context.save();
-      context.translate(i * 10, height - i * 10);
+      context.translate(centerX + j * 10, height - j * 10);
       drawCircle(0, 0, radius, colourSelector);
       context.restore();
       ticker++;
       plotCount++;
-      if (plotCount < 50) {
+      if (plotCount < 1020) {
         colourSelector = 0;
       } else {
-        if (ticker > 14) {
+        if (ticker > 10 && random.value() > 0.5) {
           const randomColour = random.rangeFloor(1, fillColour.length);
           colourSelector = randomColour;
           ticker = 0;
