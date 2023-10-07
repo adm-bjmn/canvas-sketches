@@ -12,14 +12,16 @@ const sketch = () => {
     context.save();
 
     // Rotate the canvas by 180 degrees
-    context.translate(width / 2, height / 2);
-    context.rotate(Math.PI); // 180 degrees in radians
-    context.translate(-width / 2, -height / 2);
+    // context.translate(width / 2, height / 2);
+    // context.rotate(Math.PI); // 180 degrees in radians
+    // context.translate(-width / 2, -height / 2);
 
     let radius = 90;
-
     let centerX = width + radius;
     let centerY = -600;
+    let colourSelector = 0;
+    let ticker = 0;
+    let plotCount = 0;
 
     const fillColour = [
       "#25262C",
@@ -30,8 +32,7 @@ const sketch = () => {
       "#FCD5A4",
       "#F6A12B",
     ];
-    let colourSelector = 0;
-    let ticker = 0;
+
     const drawCircle = (centerX, centerY, radius, colourSelector) => {
       context.fillStyle = fillColour[colourSelector];
       context.beginPath();
@@ -40,6 +41,7 @@ const sketch = () => {
     };
 
     for (let i = -height; i < height; i += radius) {
+      plotCount = 0;
       context.save();
       context.translate(0, centerY);
       for (let j = width; j > 0; j--) {
@@ -48,16 +50,21 @@ const sketch = () => {
         drawCircle(0, 0, radius, colourSelector);
         context.restore();
         ticker++;
-        if (ticker > 14) {
-          const randomColour = random.rangeFloor(0, fillColour.length);
-          colourSelector = randomColour;
-          ticker = 0;
+        plotCount++;
+        if (plotCount < 1010) {
+          colourSelector = 0;
+        } else {
+          if (ticker > 14) {
+            const randomColour = random.rangeFloor(1, fillColour.length);
+            colourSelector = randomColour;
+            ticker = 0;
+          }
         }
       }
       centerY += radius * 1.4;
       context.restore();
     }
-    context.restore();
+    //context.restore();
   };
 };
 
