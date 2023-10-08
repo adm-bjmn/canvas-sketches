@@ -1,5 +1,6 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
+
 const settings = {
   dimensions: "6r",
   pixelsPerInch: 300,
@@ -44,8 +45,9 @@ const sketch = () => {
       context.fill();
     };
 
-    // change this ti centerX = width *0.5 to width*0.7
-    plotLimit = random.rangeFloor(1020, 1045);
+
+    plotLimit = random.rangeFloor(width*0.6, width*0.8);
+    
     for (let j = height; j > 0; j--) {
       context.save();
       context.translate(centerX + j * 10, height - j * 10);
@@ -53,7 +55,7 @@ const sketch = () => {
       context.restore();
       ticker++;
       plotCount++;
-      if (plotCount < plotLimit) {
+      if (centerX + j * 10 > plotLimit) {
         colourSelector = 0;
       } else {
         if (changed < 3) {
