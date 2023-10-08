@@ -23,7 +23,7 @@ const settings = {
 }
 ```
 
-Useful photo sizes:
+Useful Photo Sizes:
 
 [ '5r', 127, 178 ], // 5″x7″
 [ '6r', 152, 203 ], // 6″x8″
@@ -31,12 +31,12 @@ Useful photo sizes:
 [ '10r', 254, 305 ], // 10″x12″
 [ '11r', 279, 356 ], // 11″x14″
 
+Useful Link: [Preset Paper sizes](https://github.com/mattdesl/canvas-sketch/blob/master/lib/paper-sizes.js)
+
 ## lino sizes
 
 A5(ish) 6" x 8"
 A4(ish) 10" x 12"
-
-Useful Link: [Preset Paper sizes](https://github.com/mattdesl/canvas-sketch/blob/master/lib/paper-sizes.js)
 
 ## Cmmmit Messages
 
