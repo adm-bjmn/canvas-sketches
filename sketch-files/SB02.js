@@ -46,7 +46,7 @@ const sketch = () => {
       context.fill();
     };
 
-    plotLimit = 698;
+    plotLimit = 2300;
     for (let i = -13; i < -2; i++) {
       console.log(i);
       context.save();
@@ -60,9 +60,10 @@ const sketch = () => {
         plotCount++;
         if (
           plotCount >= plotLimit &&
+          changed == 0 &&
           changed < changedLimit &&
-          ticker > 50 &&
-          random.value() > 0.8
+          ticker > 25 //&&
+          //random.value() > 0.8
         ) {
           const randomColour = random.rangeFloor(1, fillColour.length);
           colourSelector = randomColour;
@@ -75,7 +76,7 @@ const sketch = () => {
       changed = 0;
       console.log(plotCount);
       plotCount = 0;
-      // plotLimit += 10;
+      plotLimit += 30;
       colourSelector = 0;
       centerX += gap;
       context.restore();
