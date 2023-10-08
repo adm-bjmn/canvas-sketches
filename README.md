@@ -45,7 +45,7 @@ develop(sketch.js): draw a square
 ^-----^^----------^^------------^
 |      |           |
 |      |           +---> Summary in present tense.
-|      +---------------> Sketch name
+|      +---------------> Sketch name (If commiting to main)
 +----------------------> Type: new, develop, fix, style, refactor, chore, stop, printing
 ```
 

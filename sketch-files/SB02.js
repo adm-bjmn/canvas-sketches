@@ -18,7 +18,7 @@ const sketch = () => {
     // context.rotate(Math.PI); // 180 degrees in radians
     // context.translate(-width / 2, -height / 2);
 
-    let radius = 80;
+    let radius = 150;
     //let centerX = width + radius;
     //let centerY = -600;
     let colourSelector = 0;
@@ -47,7 +47,7 @@ const sketch = () => {
 
 
     plotLimit = random.rangeFloor(width*0.6, width*0.8);
-    
+
     for (let j = height; j > 0; j--) {
       context.save();
       context.translate(centerX + j * 10, height - j * 10);
@@ -59,7 +59,7 @@ const sketch = () => {
         colourSelector = 0;
       } else {
         if (changed < 3) {
-          if (ticker > 5 && random.value() > 0.8) {
+          if (ticker > 15 && random.value() > 0.8) {
             console.log(changed);
             const randomColour = random.rangeFloor(1, fillColour.length);
             colourSelector = randomColour;
