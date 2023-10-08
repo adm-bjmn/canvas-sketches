@@ -60,10 +60,9 @@ const sketch = () => {
         plotCount++;
         if (
           plotCount >= plotLimit &&
-          changed == 0 &&
           changed < changedLimit &&
-          ticker > 25 //&&
-          //random.value() > 0.8
+          ticker > random.rangeFloor(2, 35) &&
+          random.value() > 0.8
         ) {
           const randomColour = random.rangeFloor(1, fillColour.length);
           colourSelector = randomColour;
@@ -77,7 +76,13 @@ const sketch = () => {
       console.log(plotCount);
       plotCount = 0;
       plotLimit += 30;
-      colourSelector = 0;
+      if (random.value() < 0.1) {
+        const randomColour = random.rangeFloor(1, fillColour.length);
+        colourSelector = randomColour;
+      } else {
+        colourSelector = 0;
+      }
+
       centerX += gap;
       context.restore();
     }
