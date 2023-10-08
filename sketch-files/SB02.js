@@ -51,7 +51,7 @@ const sketch = () => {
       console.log(i);
       context.save();
       context.translate(centerX + i * radius, 0);
-      //const tickerCap = random.rangeFloor(50, 100);
+      const changedLimit = random.rangeFloor(3, 5);
       for (let j = height + radius; j > -radius; j--) {
         context.save();
         context.translate(centerX + j * 15, centerY - j * 15);
@@ -60,7 +60,7 @@ const sketch = () => {
         plotCount++;
         if (
           plotCount >= plotLimit &&
-          changed < 3 &&
+          changed < changedLimit &&
           ticker > 50 &&
           random.value() > 0.8
         ) {
