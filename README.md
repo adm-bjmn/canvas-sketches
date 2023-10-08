@@ -10,25 +10,31 @@ Configure .png output
 
 ## Canvas Sizes
 
-Sizes For A4: aspect 5:4 - [600 x 750] || [800 x 1000]
-
-Sizes for A5: aspect 3.5:2.5 - [500 x 700] || [750 x 1050]
-
-Sizes for Postcard: aspect 3:2 - [400 x 600] || [600 x 900]
-
-EG:
-
 ```
 const settings = {
   // Measurements of artwork
-  dimensions: [ 600, 750],
+  dimensions: [ 210, 297 ], // or use a string value for example "A4"
+
   // Use a higher density for print resolution
-  // (this defaults to 72, which is good for web)
   pixelsPerInch: 300,
-  // All our units are inches
+
+  // All units are inches
   units: 'in'
 }
 ```
+
+Useful photo sizes:
+
+[ '5r', 127, 178 ], // 5″x7″
+[ '6r', 152, 203 ], // 6″x8″
+[ '8r', 203, 254 ], // 8″x10″
+[ '10r', 254, 305 ], // 10″x12″
+[ '11r', 279, 356 ], // 11″x14″
+
+## lino sizes
+
+A5(ish) 6" x 8"
+A4(ish) 10" x 12"
 
 Useful Link: [Preset Paper sizes](https://github.com/mattdesl/canvas-sketch/blob/master/lib/paper-sizes.js)
 

@@ -1,7 +1,8 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
 const settings = {
-  dimensions: [1100, 1100],
+  dimensions: "6r",
+  pixelsPerInch: 300,
 };
 
 const sketch = () => {
@@ -16,14 +17,14 @@ const sketch = () => {
     // context.rotate(Math.PI); // 180 degrees in radians
     // context.translate(-width / 2, -height / 2);
 
-    let radius = 90;
+    let radius = 80;
     //let centerX = width + radius;
     //let centerY = -600;
     let colourSelector = 0;
     let ticker = 0;
     let plotCount = 0;
     let plotLimit;
-
+    let changed = 0;
     let centerY = 0;
     let centerX = 0;
     const fillColour = [
@@ -42,6 +43,8 @@ const sketch = () => {
       context.arc(centerX, centerY, radius, 0, Math.PI * 2);
       context.fill();
     };
+
+    // change this ti centerX = width *0.5 to width*0.7
     plotLimit = random.rangeFloor(1020, 1045);
     for (let j = height; j > 0; j--) {
       context.save();
@@ -53,10 +56,15 @@ const sketch = () => {
       if (plotCount < plotLimit) {
         colourSelector = 0;
       } else {
-        if (ticker > 15 && random.value() > 0.8) {
-          const randomColour = random.rangeFloor(1, fillColour.length);
-          colourSelector = randomColour;
-          ticker = 0;
+        if (changed < 3) {
+          if (ticker > 5 && random.value() > 0.8) {
+            console.log(changed);
+            const randomColour = random.rangeFloor(1, fillColour.length);
+            colourSelector = randomColour;
+            ticker = 0;
+            changed++;
+            console.log(changed);
+          }
         }
       }
     }
