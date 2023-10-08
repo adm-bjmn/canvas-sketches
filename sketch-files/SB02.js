@@ -26,7 +26,7 @@ const sketch = () => {
     let plotCount = 0;
     let plotLimit;
     let changed = 0;
-    let gap = 137.5;
+    let gap = 136;
     let centerY = height;
     let centerX = -width * 0.1;
     const fillColour = [
@@ -46,33 +46,36 @@ const sketch = () => {
       context.fill();
     };
 
-    plotLimit = 250;
-    for (let i = -15; i < 15; i++) {
+    plotLimit = 698;
+    for (let i = -13; i < -2; i++) {
       console.log(i);
       context.save();
       context.translate(centerX + i * radius, 0);
-      for (let j = height; j > -radius; j--) {
+      //const tickerCap = random.rangeFloor(50, 100);
+      for (let j = height + radius; j > -radius; j--) {
         context.save();
-        context.translate(centerX + j, centerY - j);
+        context.translate(centerX + j * 15, centerY - j * 15);
         drawCircle(0, 0, radius, colourSelector);
         ticker++;
         plotCount++;
         if (
           plotCount >= plotLimit &&
           changed < 3 &&
-          ticker > random.rangeFloor(100, 500) &&
+          ticker > 50 &&
           random.value() > 0.8
         ) {
           const randomColour = random.rangeFloor(1, fillColour.length);
           colourSelector = randomColour;
+          console.log("Line:", j, "-Changed");
           ticker = 0;
           changed++;
         }
         context.restore();
       }
       changed = 0;
+      console.log(plotCount);
       plotCount = 0;
-      plotLimit += plotLimit * 0.1;
+      // plotLimit += 10;
       colourSelector = 0;
       centerX += gap;
       context.restore();
