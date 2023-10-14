@@ -1,7 +1,9 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
+
 const settings = {
-  dimensions: [1100, 1100],
+  dimensions: "6r",
+  pixelsPerInch: 300,
 };
 
 const sketch = () => {
@@ -16,13 +18,17 @@ const sketch = () => {
     // context.rotate(Math.PI); // 180 degrees in radians
     // context.translate(-width / 2, -height / 2);
 
-    let radius = 90;
-    let centerX = width + radius;
-    let centerY = -600;
+    let radius = 150;
+    //let centerX = width + radius;
+    //let centerY = -600;
     let colourSelector = 0;
     let ticker = 0;
     let plotCount = 0;
-
+    let plotLimit;
+    let changed = 0;
+    let gap = 136;
+    let centerY = height;
+    let centerX = -width * 0.1;
     const fillColour = [
       "#25262C",
       "#17AD7C",
@@ -40,31 +46,46 @@ const sketch = () => {
       context.fill();
     };
 
-    for (let i = -height; i < height; i += radius) {
-      plotCount = 0;
+    plotLimit = 2300;
+    for (let i = -13; i < -2; i++) {
+      console.log(i);
       context.save();
-      context.translate(0, centerY);
-      for (let j = width; j > 0; j--) {
+      context.translate(centerX + i * radius, 0);
+      const changedLimit = random.rangeFloor(3, 5);
+      for (let j = height + radius; j > -radius; j--) {
         context.save();
-        context.translate(centerX - j * 10, centerY + j * 10);
+        context.translate(centerX + j * 15, centerY - j * 15);
         drawCircle(0, 0, radius, colourSelector);
-        context.restore();
         ticker++;
         plotCount++;
-        if (plotCount < 1010) {
-          colourSelector = 0;
-        } else {
-          if (ticker > 14) {
-            const randomColour = random.rangeFloor(1, fillColour.length);
-            colourSelector = randomColour;
-            ticker = 0;
-          }
+        if (
+          plotCount >= plotLimit &&
+          changed < changedLimit &&
+          ticker > random.rangeFloor(2, 35) &&
+          random.value() > 0.8
+        ) {
+          const randomColour = random.rangeFloor(1, fillColour.length);
+          colourSelector = randomColour;
+          console.log("Line:", j, "-Changed");
+          ticker = 0;
+          changed++;
         }
+        context.restore();
       }
-      centerY += radius * 1.4;
+      changed = 0;
+      console.log(plotCount);
+      plotCount = 0;
+      plotLimit += 30;
+      if (random.value() < 0.1) {
+        const randomColour = random.rangeFloor(1, fillColour.length);
+        colourSelector = randomColour;
+      } else {
+        colourSelector = 0;
+      }
+
+      centerX += gap;
       context.restore();
     }
-    //context.restore();
   };
 };
 
