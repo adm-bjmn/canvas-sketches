@@ -45,6 +45,10 @@ const sketch = () => {
       context.lineTo(-rectWidth / 2, rectHeight / 2);
       context.closePath();
       context.fill();
+
+      context.strokeStyle = "white";
+      context.rect(-rectWidth / 2, -rectHeight / 2, rectWidth, rectHeight);
+      context.stroke();
       context.restore();
     }
 
