@@ -26,31 +26,25 @@ const sketch = () => {
     let y = 0;
     let rectWidth = 100;
     let rectHeight = 100;
-    let prob = 0.5;
-    let drawCount = 0;
-    // draw a square
+
+    // draw Shape
     function drawSquare(x, y, w, h) {
+      const deg = Math.PI / 180;
+      const rotateBy = [0, 90, 180, 270];
+      const randomIndex = Math.floor(Math.random() * rotateBy.length);
+      const randomAngle = rotateBy[randomIndex];
       //save the original context translate settings.
       context.save();
-      /**
-       * Shift the context of the canvas.
-       * Imagine holding the Pen still and
-       * moving the paper as an
-       * alternative to moving the Pen
-       */
-      context.translate(x, y);
-      context.fillStyle = "pink";
+      context.translate(x + w / 2, y + h / 2);
+      context.rotate(randomAngle * deg);
+      context.fillStyle = "black";
       context.beginPath();
-      // To draw square from the center use:
-      //context.rect(-w * 0.5, -h * 0.5, w, h);
-      context.rect(0, 0, w, h);
+      context.moveTo(-rectWidth / 2, -rectHeight / 2);
+      context.lineTo(rectWidth / 2, -rectHeight / 2);
+      context.lineTo(rectWidth / 2, 0);
+      context.lineTo(-rectWidth / 2, rectHeight / 2);
+      context.closePath();
       context.fill();
-      /**
-       * Restore the context to ensure future objects
-       * are drawn in relation to 00 and not the
-       * context position used for this particular
-       * object
-       */
       context.restore();
     }
 
@@ -58,31 +52,24 @@ const sketch = () => {
       y = i;
       for (let j = 0; j < width; j += rectWidth) {
         x = j;
-        if (Math.random() < prob) {
-          console.log("draw");
-          drawSquare(x, y, rectWidth, rectHeight);
-          drawCount++;
-        } else {
-          console.log("dont Draw");
-        }
-        if (x == width - rectWidth) {
-          /**
-           * with each pass of the x axis
-           * increase the probability of
-           * drawing a square by almost 10%
-           */
-          // prob += 0.08;
-          // console.log(prob);
-        }
+        drawSquare(x, y, rectWidth, rectHeight);
       }
     }
-
-    console.log(
-      "Total squares in the grid:",
-      (width / rectWidth) * (height / rectHeight)
-    );
-    console.log("Drawn squares:", drawCount);
   };
 };
 
 canvasSketch(sketch, settings);
+
+// context.save;
+// context.translate(width / 2, height / 2);
+
+// Creating
+// context.fillStyle = "pink";
+// context.beginPath();
+// context.fillRect(-rectWidth / 2, -rectHeight / 2, rectHeight, rectWidth);
+// context.arc(-rectWidth / 2, -rectHeight / 2, 5, 0, Math.PI * 2);
+
+// context.fillStyle = "black";
+
+// context.fill();
+// context.restore();
