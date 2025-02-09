@@ -8,6 +8,9 @@ Initialise new sketch
 Configure .png output
 `canvas-sketch sketch-files/[name].js --output=./pngFiles/[file name]/ `
 
+Run a sketch
+`canvas-sketch sketch-files/[name].js`
+
 ## Canvas Sizes
 
 ```
